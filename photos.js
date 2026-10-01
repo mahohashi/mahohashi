@@ -1,6 +1,8 @@
 /* 写真一覧：この配列を編集するとPhotographsに反映されます。
  * 写真は photos フォルダに入れ、srcにファイル名を指定してください。
  */
+window.PHOTO_CREDIT = "Photographer: ニシカタユウキ";
+
 window.PHOTO_ITEMS = [
   {
     "src": "photos/photo-01.jpg",
@@ -54,6 +56,8 @@ window.PHOTO_ITEMS = [
 (function(){
   const gallery=document.getElementById('photo-gallery');
   const modals=document.getElementById('photo-modals');
+  const credit=document.getElementById('photo-credit');
+  if(credit) credit.textContent=window.PHOTO_CREDIT || '';
   if(!gallery || !modals || !Array.isArray(window.PHOTO_ITEMS)) return;
   gallery.innerHTML=''; modals.innerHTML='';
   window.PHOTO_ITEMS.forEach(function(item,i){
